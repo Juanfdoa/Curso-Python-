@@ -1,0 +1,4 @@
+
+[2026-02-18] Day 1: Learn new programming tools with python
+[2026-02-18] Day 2: Resolve Python exercise
+[2026-02-18] Day 3: Install programming tools
