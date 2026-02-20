@@ -1,0 +1,14 @@
+[
+    {
+        "task": "Learn Python JSON",
+        "status": "Completed"
+    },
+    {
+        "task": "Built a To-Do List App",
+        "status": "Completed"
+    },
+    {
+        "task": "Learn Python",
+        "status": "Incomplete"
+    }
+]
