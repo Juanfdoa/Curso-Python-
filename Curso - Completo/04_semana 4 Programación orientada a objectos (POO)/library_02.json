@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Cien a\u00f1os de soledad",
+        "author": "Gabriel Garcia Marquez",
+        "is_borrowed": false
+    },
+    {
+        "title": "Harry Potter y la piedra filosofal",
+        "author": "J. K. Rowling",
+        "is_borrowed": false
+    },
+    {
+        "title": "El se\u00f1or de los anillos",
+        "author": "J. R. R. Tolkien",
+        "is_borrowed": false
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "is_borrowed": false
+    },
+    {
+        "title": "El Principito",
+        "author": "Antoine de Saint-Exup\u00e9ry",
+        "is_borrowed": false
+    }
+]
