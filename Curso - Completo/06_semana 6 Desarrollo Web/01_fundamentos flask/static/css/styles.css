@@ -1,0 +1,83 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Títulos */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #764ba2;
+}
+
+h2 {
+    margin-top: 25px;
+    color: #555;
+}
+
+/* Texto */
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Listas */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Botones */
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    background-color: #764ba2;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    background-color: #5a3c8c;
+    transform: translateY(-2px);
+}
+
+/* Estilo especial 404 */
+.error-code {
+    font-size: 100px;
+    text-align: center;
+    color: #ff4b5c;
+}

@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="post-header">
+            <h1>{{ post.title }}</h1>
+            <small>By {{ post.author }}</small>
+        </div>
+    <h2>{{post.description}}</h2>
+    <p>{{post.content}}</p>
+    <a class="btn" href="/">Back Home</a>
+{% endblock %}

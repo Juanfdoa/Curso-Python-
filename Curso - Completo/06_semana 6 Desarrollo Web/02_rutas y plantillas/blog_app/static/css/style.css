@@ -1,0 +1,141 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+nav {
+    background: linear-gradient(90deg, #4e73df, #224abe);
+    padding: 15px 40px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* TITULOS */
+h1 {
+    margin-bottom: 20px;
+    color: #224abe;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* TARJETAS DE POSTS */
+.post {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.post p {
+    margin: 10px 0;
+}
+
+.post small {
+    color: #777;
+}
+
+.post-header {
+    display: flex;
+    align-items: baseline; /* Alinea bien el texto */
+    gap: 8px;              /* Espacio pequeño entre ellos */
+}
+
+.post-header h1 h2 {
+    margin: 0;
+}
+
+.post-header small {
+    color: #777;
+}
+
+hr {
+    margin-top: 20px;
+}
+
+/* BOTONES */
+.btn {
+    display: block;              /* Hace que ocupe línea completa */
+    width: fit-content;          /* Solo el ancho del contenido */
+    margin: 15px auto 0 auto;    /* Centra horizontalmente */
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #4e73df, #224abe);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.page-btn {
+    padding: 8px 14px;
+    text-decoration: none;
+    background: #f1f1f1;
+    color: #333;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.page-btn:hover {
+    background: #4e73df;
+    color: white;
+}
+
+.page-btn.active {
+    background: #4e73df;
+    color: white;
+    font-weight: bold;
+}

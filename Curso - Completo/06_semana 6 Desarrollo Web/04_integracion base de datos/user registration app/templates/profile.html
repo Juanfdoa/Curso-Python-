@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+     <div class="profile-card">
+        <h1>Welcome {{ user.username }}</h1>
+        <div class="info">
+            <strong>Username:</strong> {{ user.username }}
+        </div>
+
+        <div class="info">
+            <strong>Email:</strong> {{ user.email }}
+        </div>
+
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button class="logout">Logout</button>
+        </form>
+
+    </div>
+</body>
+</html>

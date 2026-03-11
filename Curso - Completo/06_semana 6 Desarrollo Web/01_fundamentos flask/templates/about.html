@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>About Flask</h1>
+
+        <p>
+            Flask is a lightweight Python web framework used to build web applications.
+        </p>
+
+        <h2>Why Use Flask?</h2>
+        <ul>
+            <li>Simple</li>
+            <li>Flexible</li>
+            <li>Fast to develop</li>
+        </ul>
+
+        <div class="buttons">
+            <a href="/">Home</a>
+            <a href="/greet/Juan">Greet Juan</a>
+        </div>
+    </div>
+
+</body>
+</html>
