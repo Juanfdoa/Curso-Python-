@@ -1,0 +1,9 @@
+Id,Date,Category,Amount,Description
+893eff7a-8c14-4741-a989-fbebf4180ef1,2026-04-01,Housing,500000,Rent
+11fecd22-4bc1-45bc-b9ab-76d562cf5589,2026-04-01,Utilities,240000,Public Services
+35e12669-f075-4976-9c8b-31236c39d838,2026-04-01,Utilities,150000,Internet
+d874c0a3-d3cc-44b6-bd71-e8e9df7b5156,2026-04-01,Health,130000,Eps
+940eb171-11be-47d6-9ce3-d1fe27d11a6d,2026-04-01,Utilities,70000,Parking
+9ed1325d-1e4d-4cf3-913a-f6b55e7d10a2,2026-04-01,Health,90000,Gym
+e55121dc-e911-4362-8ce7-d95475038f67,2026-04-01,Entertainment,130000.0,Games
+ae9b089c-fb50-44f6-9417-085bc0068320,2026-04-01,Education,420000.0,School

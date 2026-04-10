@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css">
+</head>
+<body>
+<div class="wrapper">
+
+    <header>
+        <h1>Expense Tracker</h1>
+        <p>Track and visualize your spending</p>
+    </header>
+
+    <div class="main-layout">
+        <div class="left-col">
+            <section>
+                <h2>Add Expense</h2>
+                <form method="POST">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <div class="select-wrapper">
+                                <select id="category" name="category" required>
+                                    {% for cat in categories %}
+                                        <option value="{{ cat }}">{{ cat }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" id="amount" name="amount" placeholder="0.00" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" id="description" name="description" placeholder="e.g. Lunch">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </section>
+
+            <section>
+               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                    <h2 style="margin-bottom: 0;">Expenses</h2>
+                    <a href="{{ url_for('expenses.export') }}">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" width="20">
+                    </a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for index, row in df.iterrows() %}
+                        <tr>
+                            <td>{{ row['Date'] }}</td>
+                            <td><span class="badge">{{ row['Category'] }}</span></td>
+                            <td class="amount">$ {{ row['Amount'] }}</td>
+                            <td>{{ row['Description'] }}</td>
+                            <td>
+                                <form method="POST" action="{{ url_for('expenses.delete', id=row['Id']) }}" class="delete-form">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr class="empty-row">
+                            <td colspan="5">No expenses yet. Add one above.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+        </div>
+
+        <div class="right-col">
+
+            <div class="chart-card">
+                <h3>By Category</h3>
+                <div id="pie-chart"></div>
+            </div>
+
+            <div class="chart-card">
+                <h3>Monthly Trends</h3>
+                <div id="bar-chart"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var pieFig = {{ pie | safe }};
+    Plotly.newPlot('pie-chart', pieFig.data, pieFig.layout);
+
+    var barFig = {{ bar | safe }};
+    Plotly.newPlot('bar-chart', barFig.data, barFig.layout);
+</script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+/* ── Reset & Base ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --surface-2: #f0efe9;
+    --border: rgba(0, 0, 0, 0.1);
+    --border-strong: rgba(0, 0, 0, 0.2);
+    --text: #1a1a18;
+    --text-muted: #6b6a64;
+    --text-hint: #9e9d97;
+    --accent: #1D9E75;
+    --accent-light: #E1F5EE;
+    --accent-dark: #0F6E56;
+    --danger: #D85A30;
+    --danger-light: #FAECE7;
+    --radius: 10px;
+    --radius-sm: 6px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ── Layout ── */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: sticky;
+    top: 1.5rem;
+}
+
+/* ── Header ── */
+header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--border-strong);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+
+header p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* ── Section ── */
+section {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+section h2 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+/* ── Form ── */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr auto;
+    gap: 0.75rem;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+}
+
+input, select {
+    width: 100%;
+    height: 38px;
+    padding: 0 0.75rem;
+    background: var(--surface-2);
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.12);
+    background: var(--surface);
+}
+
+input::placeholder {
+    color: var(--text-hint);
+}
+
+/* Custom select arrow */
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--text-muted);
+    pointer-events: none;
+}
+
+/* ── Buttons ── */
+.btn {
+    height: 38px;
+    padding: 0 1.1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-dark);
+}
+
+.btn-danger {
+    background: transparent;
+    color: var(--danger);
+    border: 0.5px solid rgba(216, 90, 48, 0.3);
+    padding: 0 0.75rem;
+    height: 30px;
+    font-size: 0.78rem;
+}
+
+.btn-danger:hover {
+    background: var(--danger-light);
+}
+
+/* ── Table ── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+thead th {
+    text-align: left;
+    padding: 0 0.75rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-hint);
+    border-bottom: 0.5px solid var(--border);
+}
+
+tbody tr {
+    border-bottom: 0.5px solid var(--border);
+    transition: background 0.1s;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: var(--surface-2);
+}
+
+tbody td {
+    padding: 0.75rem;
+    color: var(--text);
+    vertical-align: middle;
+}
+
+/* Category badge */
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+}
+
+/* Amount column */
+.amount {
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+}
+
+/* Delete form inline */
+.delete-form {
+    margin: 0;
+    padding: 0;
+}
+
+.empty-row td {
+    text-align: center;
+    color: var(--text-hint);
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* ── Charts ── */
+.chart-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+}
+
+.chart-card h3 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+#pie-chart, #bar-chart {
+    width: 100%;
+    min-height: 260px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 780px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .right-col {
+        position: static;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid .form-group:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+
+    .form-grid .btn {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    thead th:first-child,
+    tbody td:first-child {
+        display: none;
+    }
+}

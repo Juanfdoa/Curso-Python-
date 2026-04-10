@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <span class="icon">🌤️</span>
+        <h1>Weather Dashboard</h1>
+        <p>Real-time conditions for any city</p>
+    </div>
+
+    <!-- Search form -->
+    <div class="form-card">
+        <form method="POST" id="weatherForm">
+            <div class="input-row">
+                <input type="text" name="city" placeholder="Enter city name…" required>
+                <button type="submit" class="btn-search" id="submitBtn">Search</button>
+            </div>
+        </form>
+
+        <!-- Loading spinner (shown via JS while the page request is in flight) -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Fetching weather data…</p>
+        </div>
+    </div>
+
+    <!-- Weather result (only rendered by Jinja2 when data exists) -->
+    {% if weather %}
+    <div class="weather-card">
+        <div class="weather-header">
+            <span class="city-emoji">🌆</span>
+            <h2>{{ weather.city }}</h2>
+            <span class="description-badge">{{ weather.description }}</span>
+        </div>
+        <div class="weather-body">
+            <div class="stat temp">
+                <div>
+                    <div class="stat-label">Temperature</div>
+                    <div class="stat-value">{{ weather.temperature }}°C</div>
+                </div>
+                <span class="stat-icon">🌡️</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">💧</span>
+                <div class="stat-label">Humidity</div>
+                <div class="stat-value">{{ weather.humidity }}</div>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">💨</span>
+                <div class="stat-label">Wind Speed</div>
+                <div class="stat-value">{{ weather.wind_speed }}</div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+<script>
+    // Show loading spinner when the form is submitted
+    document.getElementById('weatherForm').addEventListener('submit', function () {
+        document.getElementById('loading').classList.add('active');
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').textContent = 'Searching…';
+    });
+</script>
+
+</body>
+</html>
